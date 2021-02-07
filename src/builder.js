@@ -53,10 +53,13 @@ module.exports = {
                 .pipe(replace('%amocrm_widget_code%', process.env.AMOCRM_WIDGET_CODE))
 
                 .pipe(replace("'%app_free%'", parseBoolean(process.env.APP_FREE)))
-                .pipe(replace('%app_free%', process.env.APP_FREE))
+                .pipe(replace('%app_free%', parseBoolean(process.env.APP_FREE)))
 
-                .pipe(replace("'%app_version%'", parseBoolean(process.env.APP_VERSION)))
+                .pipe(replace("'%app_version%'", process.env.APP_VERSION))
                 .pipe(replace('%app_version%', process.env.APP_VERSION))
+
+                .pipe(replace("'%app_signature_request%'", parseBoolean(process.env.APP_SIGNATURE_REQUEST)))
+                .pipe(replace('%app_signature_request%', parseBoolean(process.env.APP_SIGNATURE_REQUEST)))
 
                 .pipe(gulp.dest(src + '/'))
                 .pipe(touch())
