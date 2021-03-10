@@ -39,7 +39,7 @@ module.exports = {
 
         return new Promise(function (resolve, reject) {
             // В начале пытаемся подставить с кавычками т.к. бывает формат нужен конкретный, а потом как есть.
-            gulp.src([src + '/**.json', src + '/**.js', src + '/*/**.js', src + '/**/*.js', src + '/**/*.scss'])
+            gulp.src([src + '/**/*.json', src + '/**.js', src + '/*/**.js', src + '/**/*.js', src + '/**/*.scss'])
                 .pipe(replace("'%app_env%'", "'" + env + "'"))
                 .pipe(replace('%app_env%', env))
 
